@@ -8,8 +8,7 @@ import com.google.gson.JsonParser;
 
 public class Main {
     private static final HttpClient httpClient = HttpClient.newBuilder().build();
-    private static final String API_URL = "https://v6.exchangerate-api.com/v6/cc9968c2546aae2899de73ba/pair/EUR/GBP";
-    private static final String ACCESS_KEY = "cc9968c2546aae2899de73ba";
+    private static final String API_URL = "https://v6.exchangerate-api.com/v6/cc9968c2546aae2899de73ba/pair/";
 
     public static class CurrencyConverter {
         public static void main(String[] args) {
@@ -49,8 +48,9 @@ public class Main {
         }
 
         private static double convertCurrency(String fromCurrency, String toCurrency, double amount) {
+            String url = API_URL + fromCurrency + "/" + toCurrency + "/" + amount;
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(API_URL + "?access_key=" + ACCESS_KEY + "&base=" + fromCurrency + "&symbols=" + toCurrency))
+                    .uri(URI.create(url))
                     .build();
 
             try {
@@ -58,10 +58,13 @@ public class Main {
 
                 if (response.statusCode() == 200) {
                     JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
-                    double exchangeRate = jsonObject.getAsJsonObject("rates").get(toCurrency).getAsDouble();
-                    return amount * exchangeRate;
+                    if (jsonObject.get("result").getAsString().equals("success")) {
+                        return jsonObject.get("conversion_result").getAsDouble();
+                    } else {
+                        System.out.println("Erro na conversão: " + jsonObject.get("error-type").getAsString());
+                    }
                 } else {
-                    System.out.println("Erro ao obter as taxas de câmbio.");
+                    System.out.println("Erro na requisição HTTP. Código de status: " + response.statusCode());
                 }
             } catch (Exception e) {
                 System.out.println("Erro na requisição HTTP: " + e.getMessage());
@@ -75,7 +78,7 @@ public class Main {
             System.out.println("1. Brasil");
             System.out.println("2. Argentina");
             System.out.println("3. Chile");
-
+            // Adicione mais países conforme necessário
         }
 
         private static String getCurrencyCode(int choice) {
@@ -83,8 +86,8 @@ public class Main {
                 case 1 -> "BRL";
                 case 2 -> "ARS";
                 case 3 -> "CLP";
-
-                default -> "";
+                // Adicione mais casos conforme necessário
+                default -> ""; // Retorno vazio para caso de escolha inválida
             };
         }
     }
