@@ -58,7 +58,6 @@ public class Main {
             double convertedAmount = convertCurrency(fromCurrency, toCurrency, amount);
             System.out.printf("%.2f %s equivale a %.2f %s\n", amount, fromCurrency, convertedAmount, toCurrency);
 
-            // Adiciona a conversão ao histórico
             Conversion conversion = new Conversion(fromCurrency, toCurrency, amount, convertedAmount, LocalDateTime.now());
             conversionHistory.add(conversion);
         }
