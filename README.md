@@ -1,4 +1,4 @@
-# Documentação - Currency Converter
+# Documentação - Conversor de moedas
 
 ## Introdução
 Este é um sistema simples de conversão de moedas desenvolvido em Java. <br>
