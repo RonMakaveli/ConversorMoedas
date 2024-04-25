@@ -1,7 +1,8 @@
 # Documentação - Currency Converter
 
 ## Introdução
-Este é um sistema simples de conversão de moedas desenvolvido em Java. Ele utiliza a API [ExchangeRate-API](https://www.exchangerate-api.com/) para obter as taxas de câmbio em tempo real e realizar as conversões entre diferentes moedas.
+Este é um sistema simples de conversão de moedas desenvolvido em Java. <br>
+Ele utiliza a API [ExchangeRate-API](https://www.exchangerate-api.com/) para obter as taxas de câmbio em tempo real e realizar as conversões entre diferentes moedas.
 
 ## Requisitos
 Para executar este sistema, você precisa ter o Java instalado em sua máquina.
@@ -26,9 +27,6 @@ Para executar este sistema, você precisa ter o Java instalado em sua máquina.
 ### Observações
 - As moedas suportadas atualmente são: Real Brasileiro (BRL), Dólar Americano (USD), Peso Chileno (CLP), Peso Argentino (ARS), Boliviano da Bolívia (BOB) e Peso Colombiano (COP).
 - O sistema armazena o histórico de conversões durante a execução, mas não persiste os dados após o encerramento do programa.
-
-## Agradecimentos
-Este programa foi desenvolvido utilizando a API ExchangeRate-API. Agradecemos pela disponibilização deste serviço para realização de conversões de moedas em tempo real.
 
 ## Autor
 Este programa foi desenvolvido por mim como parte de um Challenge proposto pela Alura.
