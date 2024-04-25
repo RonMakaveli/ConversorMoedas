@@ -25,7 +25,13 @@ Para executar este sistema, você precisa ter o Java instalado em sua máquina.
 - Esta opção exibe o histórico de todas as conversões realizadas durante a execução do programa.
 
 ### Observações
-- As moedas suportadas atualmente são: Real Brasileiro (BRL), Dólar Americano (USD), Peso Chileno (CLP), Peso Argentino (ARS), Boliviano da Bolívia (BOB) e Peso Colombiano (COP).
+- As moedas suportadas atualmente são: 
+    - Real Brasileiro (BRL)
+    - Dólar Americano (USD)
+    - Peso Chileno (CLP)
+    - Peso Argentino (ARS)
+    - Boliviano da Bolívia (BOB)
+    - e Peso Colombiano (COP)
 - O sistema armazena o histórico de conversões durante a execução, mas não persiste os dados após o encerramento do programa.
 
 ## Autor
