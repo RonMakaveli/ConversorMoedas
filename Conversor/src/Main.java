@@ -22,17 +22,17 @@ public class Main {
                 int choice = scanner.nextInt();
 
                 if (choice == 1) {
-                    System.out.println("Escolha o país de origem:");
+                    System.out.println("Escolha a moeda do país de origem:");
                     displayCountryList();
-                    int fromChoice = scanner.nextInt();
+                    int fromChoice = getValidChoice(scanner);
                     String fromCurrency = getCurrencyCode(fromChoice);
 
-                    System.out.println("Escolha o país de destino:");
+                    System.out.println("Escolha a moeda do país de destino:");
                     displayCountryList();
-                    int toChoice = scanner.nextInt();
+                    int toChoice = getValidChoice(scanner);
                     String toCurrency = getCurrencyCode(toChoice);
 
-                    System.out.println("Digite a quantidade a ser convertida:");
+                    System.out.println("Digite a quantia a ser convertida:");
                     double amount = scanner.nextDouble();
 
                     double convertedAmount = convertCurrency(fromCurrency, toCurrency, amount);
@@ -70,25 +70,42 @@ public class Main {
                 System.out.println("Erro na requisição HTTP: " + e.getMessage());
             }
 
-            return -1; // Retorna -1 se houver erro na conversão
+            return -1;
         }
 
         private static void displayCountryList() {
-            System.out.println("Escolha a Moeda:");
+            System.out.println("**********************************");
             System.out.println("1. Real Brasileiro");
-            System.out.println("2. Peso Argentino");
+            System.out.println("2. Dólar Americano");
             System.out.println("3. Peso Chileno");
-            System.out.println("4. Dólar Americano");
-            System.out.println("5. Peso Chileno");
-            // Adicione mais países conforme necessário
+            System.out.println("4. Peso Argentino");
+            System.out.println("5. Boliviano da Bolívia");
+            System.out.println("6. Peso Colombiano");
+            System.out.println("**********************************");
+        }
+
+        private static int getValidChoice(Scanner scanner) {
+            int choice;
+            while (true) {
+                System.out.print("Digite o número correspondente ao país: ");
+                choice = scanner.nextInt();
+                if (choice >= 1 && choice <= 6) {
+                    break;
+                } else {
+                    System.out.println("Escolha inválida. Por favor, escolha um número entre 1 e 10.");
+                }
+            }
+            return choice;
         }
 
         private static String getCurrencyCode(int choice) {
             return switch (choice) {
                 case 1 -> "BRL";
-                case 2 -> "ARS";
+                case 2 -> "USD";
                 case 3 -> "CLP";
-                case 4 -> "USD";
+                case 4 -> "ARS";
+                case 5 -> "BOB";
+                case 6 -> "COP ";
                 default -> "";
             };
         }
