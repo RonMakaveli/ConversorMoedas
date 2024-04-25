@@ -1,4 +1,11 @@
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Currency Converter</title>
+</head>
+<body>
     <h1>Documentação - Currency Converter</h1>
 
     <h2>Introdução</h2>
@@ -38,3 +45,5 @@
 
     <h2>Autor</h2>
     <p>Este programa foi desenvolvido por mim como parte do Challenge proposto pela Alura.</p>
+</body>
+</html>
